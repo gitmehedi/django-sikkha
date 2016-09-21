@@ -1,0 +1,16 @@
+{% if lists %}
+    <table>
+        {% for list in lists %}
+         <b>{{ list.question_text }}</b><br>
+            {% for choice in list.choice_set.all %}
+
+
+               <tr>
+                   <td>{{choice.id}} <a href="{% url 'polls:details' choice.id %}">{{ choice.title }}</a></td>
+               </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No polls are available</p>
+{% endif %}
