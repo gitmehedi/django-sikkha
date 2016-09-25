@@ -1,13 +1,13 @@
 {% if lists %}
-    <table>
+
         {% for list in lists %}
-         <b>{{ list.question_text }}</b><br>
+            <div>
+                <b>{{ forloop.counter}}. <a href="{% url 'polls:details' list.id %}">{{ list.question_text}}</a></b>
+            </div>
             {% for choice in list.choice_set.all %}
-
-
-               <tr>
-                   <td>{{choice.id}} <a href="{% url 'polls:details' choice.id %}">{{ choice.title }}</a></td>
-               </tr>
+              <ul style="list-style:none;">
+                   <li><b>{{forloop.counter}}. </b>{{ choice.title }}</li>
+               </ul>
             {% endfor %}
         {% endfor %}
     </table>
