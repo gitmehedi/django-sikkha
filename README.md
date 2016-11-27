@@ -9,14 +9,14 @@ Extend Django Auth Module
 ##STEPS:
 1. Add this module name in projects(ex <project_name>) installed apps
 
-```INSTALLED_APPS = (
+```html INSTALLED_APPS = (
   .....
   'auth_module',
   .....
 )```
 2. Add Auth_Module urls in projects(ex <project_name>)
 
-```urlpatterns = [
+```html urlpatterns = [
     ..........
     url(r'^',include('auth_module.urls')),
     ..........
