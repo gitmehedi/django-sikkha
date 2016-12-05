@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-sm-5 col-md-5">
+			<h3>List of designation</h3>
+		</div>
+		<div class="col-sm-7 col-md-7">
+			<form class="navbar-form navbar-left" role="search" method="get"
+				action="{% url 'lists_designation' %}">
+				<div class="form-group">
+					<input type="text" class="form-control" name="q"
+						value="{{ request.GET.q }}">
+				</div>
+				<button type="submit" class="btn btn-default">Search</button>
+			</form>
+
+		</div>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>S.N</th>
+					<th>Name</th>
+					<th>Institute Name</th>
+					<th>Instititute Location</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+
+			</thead>
+			<tbody>
+				{% for list in lists %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ list.title }}</td>
+					<td>{{ list.institute_name }}</td>
+					<td>{{ list.instititute_location }}</td>
+					<td>{{ list.status}}</td>
+					<td><a href="{% url 'edit_designation' pk=list.id %}"
+						class="btn btn-primary">Edit</a> <a
+						href="{% url 'delete_designation' pk=list.id %}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+</div>

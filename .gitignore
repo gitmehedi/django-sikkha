@@ -1,1 +1,8 @@
+frontend/*
+manage.py
+.project
+.pydevproject
 *.pyc
+
+
+

@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-sm-5 col-md-5">
+			<h3>List of Doctor</h3>
+		</div>
+		<div class="col-sm-7 col-md-7">
+			<form class="navbar-form navbar-left" role="search" method="get"
+				action="{% url 'homepage' %}">
+				<div class="form-group">
+					<input type="text" class="form-control" name="q"
+						value="{{ request.GET.q }}">
+				</div>
+				<button type="submit" class="btn btn-default">Search</button>
+			</form>
+
+		</div>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>S.N</th>
+					<th>Name</th>
+                    <th>Picture</th>
+					<th>Telephone No</th>
+					<th>Available Time</th>
+					<th>Specialist</th>
+					<th>Hospital</th>
+                    <th>Action</th>
+				</tr>
+
+			</thead>
+			<tbody>
+				{% for list in lists %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ list.name }}</td>
+					<td>
+						{% if list.picture %}
+							<img width="100" height="100" src="{{ list.picture.url }}" class="img-responsive">
+						{% else%}
+                            {% if list.gender == "male" %}
+							    <img width="100" height="100" src="/pictures/images/male.png" class="img-responsive">
+                            {% else %}
+                                <img width="100" height="100" src="/pictures/images/female.png" class="img-responsive">
+                            {% endif %}
+						{% endif%}
+					</td>
+					<td>{{ list.telephone_no }}</td>
+					<td>{{ list.available_time }}</td>
+					<td>{{ list.specialist }}</td>
+					<td><a href="{% url 'create_hospital' %}">{{ list.specialist }}</a></td>
+					<td><a href="{% url 'edit_doctor' pk=list.id %}"
+						class="btn btn-primary">Edit</a> <a
+						href="{% url 'delete_doctor' pk=list.id %}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% include "pages/paginator.html" with lists=lists %}
+
+	</div>
+</div>

@@ -4,7 +4,6 @@ from auth_module.forms import *
 from .msg import *
 
 
-
 def user_registration(request):
     """
     Register new user
@@ -30,7 +29,7 @@ def user_registration(request):
             if user is not None:
                 if user.is_active:
                    login(request,user)
-                   return redirect('/login/')
+                   return redirect('/')
                 else:
                    return render(request, template_name,{errmsg:err_msg['auth_fail']})
                 
