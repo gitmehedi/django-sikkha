@@ -12,21 +12,17 @@
 		</div>
 
 		<!-- Items -->
+
+
 		<div class="collapse navbar-collapse" id="topNavBar">
 			<ul class="nav navbar-nav">
-				<li class="{% block albums_active %}{% endblock %}">
-                    <a href="{% url 'create_doctor' %}"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
-						Doctor</a></li>
-				<li class="{% block songs_active %}{% endblock %}">
-                    <a href="{% url 'create_hospital'  %}"><span class="glyphicon glyphicon- " aria-hidden="true"></span>Hospital</a></li>
-                 <li class=""><a href="{% url 'create_specialist'  %}"><span
-						class="glyphicon glyphicon- " aria-hidden="true"></span>Specialist</a></li>
-                 <li class=""><a href="{% url 'create_designation'  %}">
-                    <span class="glyphicon glyphicon- " aria-hidden="true"></span>Designation</a></li>
-            <li class=""><a href="{% url 'create_degree'  %}">
-                    <span class="glyphicon glyphicon- " aria-hidden="true"></span>Degree</a></li>
-            <li class=""><a href="{% url 'create_city'  %}">
-                    <span class="glyphicon glyphicon- " aria-hidden="true"></span>City</a></li>
+				{% for menu in menus %}
+						<li class="{% block albums_active %}{% endblock %}">
+							<a href="{% url menu.slug %}">
+								<span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;{{menu.name}}
+							</a>
+						</li>
+				{% endfor %}
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

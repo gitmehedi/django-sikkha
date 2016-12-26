@@ -21,6 +21,8 @@ class DesignationAdmin(admin.ModelAdmin):
 
 class DSpecialistAdmin(admin.ModelAdmin):
     fields = ['title', 'institute_name', 'instititute_location', 'status']
+
+
     
 
 admin.site.register(DoctorBioModel,DoctorBioAdmin)
