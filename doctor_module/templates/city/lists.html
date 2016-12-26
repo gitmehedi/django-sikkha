@@ -31,9 +31,11 @@
 					<td>{{ forloop.counter }}</td>
 					<td>{{ list.name }}</td>
 					<td>{{ list.status}}</td>
-					<td><a href="{% url 'edit_city' pk=list.id %}"
-						class="btn btn-primary">Edit</a> <a
-						href="{% url 'delete_city' pk=list.id %}" class="btn btn-danger">Delete</a>
+					<td>
+						<div class="btn-group btn-group-xs" role="group">
+							<a href="{% url 'edit_city' pk=list.id %}" class="btn btn-primary">Edit</a>
+							<a href="{% url 'delete_city' pk=list.id %}" class="btn btn-danger">Delete</a>
+						</div>
 					</td>
 				</tr>
 				{% endfor %}

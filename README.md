@@ -15,6 +15,8 @@ INSTALLED_APPS = (
   'auth_module',
   .....
 )```
+
+
 2. Add Auth_Module urls in projects(ex <project_name>)
 
 ```html 

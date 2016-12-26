@@ -35,9 +35,11 @@
 					<td>{{ list.institute_name }}</td>
 					<td>{{ list.instititute_location }}</td>
 					<td>{{ list.status}}</td>
-					<td><a href="{% url 'edit_degree' pk=list.id %}"
-						class="btn btn-primary">Edit</a> <a
-						href="{% url 'delete_degree' pk=list.id %}" class="btn btn-danger">Delete</a>
+					<td>
+						<div class="btn-group btn-group-xs" role="group">
+							<a href="{% url 'edit_degree' pk=list.id %}" class="btn btn-primary">Edit</a>
+							<a href="{% url 'delete_degree' pk=list.id %}" class="btn btn-danger">Delete</a>
+						</div>
 					</td>
 				</tr>
 				{% endfor %}
