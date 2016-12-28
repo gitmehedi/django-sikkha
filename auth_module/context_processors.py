@@ -1,9 +1,17 @@
 from collections import defaultdict
+from django.core.urlresolvers import get_resolver
 
 from . import models
 
+
+
 def navigation_menu(request):
     menus = models.NavigationMenu.objects.all()
+
+    url_lists  = get_resolver(None).reverse_dict.keys()
+
+    newp =   [ p for p in url_lists if isinstance(p, basestring)]
+    print newp
     # menu_list= defaultdict(dict)
     # menu_id=0
     # for menu in menus:
