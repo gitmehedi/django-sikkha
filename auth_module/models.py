@@ -44,8 +44,8 @@ class NavigationMenu(models.Model):
     Create a menu lists which generates a custom munu
     """
     name = models.CharField(max_length=100, blank=False)
-    slug= models.CharField(max_length=100, blank=False)
-    level = models.IntegerField(default=1)
+    slug= models.CharField(max_length=100, blank=True, null=True)
+    level = models.IntegerField(default=0)
     parent = models.ForeignKey("self", blank=True, null=True)
     status = models.BooleanField(default=True)
 
@@ -57,9 +57,13 @@ class NavigationMenu(models.Model):
     def __str__(self):
             return self.name
 
-    # @staticmethod
-    def get_active(self):
-        return NavigationMenu.objects.filter(status=True)
+    def save(self, *args, **kwargs):
+        if self.parent:
+            self.level = 1
+        else:
+            self.level = 0
+        super(NavigationMenu, self).save(*args, **kwargs)
+
 
 
 

@@ -3,6 +3,7 @@ from auth_module.models import *
 
 
 class NavigationMenuAdmin(admin.ModelAdmin):
-    fields = ['name','slug','level','parent','status']
+    fields = ['name','slug','parent','status']
+    list_display = ('name', 'status','parent','slug')
 
 admin.site.register(NavigationMenu, NavigationMenuAdmin)
