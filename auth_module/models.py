@@ -47,7 +47,7 @@ class NavigationMenu(models.Model):
     slug= models.CharField(max_length=100, blank=True, null=True)
     level = models.IntegerField(default=0)
     parent = models.ForeignKey("self", blank=True, null=True)
-    status = models.BooleanField(default=True)
+    status = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["id"]
