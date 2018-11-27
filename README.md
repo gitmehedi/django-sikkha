@@ -1,12 +1,12 @@
 # django_auth_extension
 Extend Django Auth Module 
 
-##Requirement:
+## Requirement:
 1. Setup Python
 2. Setup Django
 3. Create project "django-admin startproject <project_name>"
 
-##STEPS:
+## STEPS:
 1. Add this module name in projects(ex <project_name>) installed apps
 
 ```html 
